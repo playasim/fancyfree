@@ -31,14 +31,13 @@ public class DynamicProxy implements InvocationHandler {
             }
         } else if (method.isAnnotationPresent(Insert.class)) {
             sql = method.getAnnotation(Insert.class).value();
-            sqlExecute(sql, args);
         } else if (method.isAnnotationPresent(Update.class)) {
             sql = method.getAnnotation(Update.class).value();
-            sqlExecute(sql, args);
         } else {
             sql = method.getAnnotation(Delete.class).value();
-            sqlExecute(sql, args);
         }
+        sqlExecute(sql, args);
+
         return null;
     }
 
