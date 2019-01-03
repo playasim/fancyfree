@@ -1,3 +1,5 @@
+package config;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,17 +16,17 @@ public class MysqlConfig {
     private static final Logger logger = LoggerFactory.getLogger(MysqlConfig.class);
 
 
-    private String host;
+    private static String host;
 
-    private String username;
+    private static String username;
 
-    private String password ;
+    private static String password ;
 
-    private Connection conn;
+    private static Connection conn;
 
 
 
-    private void initConnection() {
+    private static void initConnection() {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
@@ -50,14 +52,14 @@ public class MysqlConfig {
         }
     }
 
-    public Connection getConn() {
+    public static Connection getConn() {
         if (conn == null)
             initConnection();
         return conn;
     }
 
 
-    public void close() {
+    public static void close() {
         if (conn != null) {
             try {
                 conn.close();

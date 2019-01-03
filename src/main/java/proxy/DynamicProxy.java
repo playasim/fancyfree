@@ -4,10 +4,13 @@ import annotation.Delete;
 import annotation.Insert;
 import annotation.Select;
 import annotation.Update;
+import config.MysqlConfig;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 /**
@@ -42,6 +45,7 @@ public class DynamicProxy implements InvocationHandler {
     }
 
     private void sqlExecute(String sql, Object[] args) {
+
     }
 
     private Object goQuery(String sql, Object[] args, Class returnTypeClass) {
