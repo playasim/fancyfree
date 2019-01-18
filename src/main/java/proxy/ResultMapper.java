@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +22,7 @@ public class ResultMapper<T> {
             InstantiationException,
             NoSuchFieldException,
             InvocationTargetException {
-
-        List<T> result = null;
+        List<T> result = new ArrayList();
         while (rs.next()) {
             ResultSetMetaData metadata = rs.getMetaData();
             T bean = (T) clazz.newInstance();
